@@ -1,3 +1,3 @@
 module.exports = {
-  projects: ["./djackets-frontend"],
+  projects: ["./frontend"],
 };
