@@ -1,19 +1,59 @@
-<script setup>
-// This starter template is using Vue 3 <script setup> SFCs
-// Check out https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup
-</script>
-
 <template>
-  <router-view />
+  <div id="wrapper">
+    <nav class="navbar is-dark">
+      <div class="navbar-brand">
+        <router-link to="/" class="navbar-item"
+          ><strong>Djackets</strong></router-link
+        >
+
+        <a
+          aria-label="menu"
+          aria-expanded="false"
+          data-target="navbar-menu"
+          class="navbar-burger"
+          @click="showMobileMenu = !showMobileMenu"
+        >
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+        </a>
+      </div>
+      <div
+        class="navbar-menu"
+        id="navbar-menu"
+        :class="{ 'is-active': showMobileMenu }"
+      >
+        <div class="navbar-end">
+          <router-link to="/summer" class="navbar-item">Summer</router-link>
+          <router-link to="/winter" class="navbar-item">Winter</router-link>
+          <div class="navbar-item">
+            <div class="buttons">
+              <router-link to="/log-in" class="button is-light"
+                >Log in</router-link
+              >
+              <router-link to="/cart" class="button is-success">
+                <span class="icon"><i class="fas fa-shopping-cart"></i></span>
+                <span>Cart</span>
+              </router-link>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </div>
+
+  <div class="section"><router-view /></div>
+  <div class="footer">
+    <p class="has-text-centered">Copyright (c) 2021</p>
+  </div>
 </template>
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-</style>
+<script>
+export default {
+  data() {
+    return {
+      showMobileMenu: false,
+    };
+  },
+};
+</script>
